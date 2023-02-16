@@ -4,12 +4,15 @@
 
 const crypto = require('crypto');//Import del crypto module
 const algorithm = 'aes-256-cbc'; //Using AES encryption
-const key = crypto.randomBytes(32); //random gen key de 32 bytes
-const iv = crypto.randomBytes(16); //random gen key de 16 bytes
+
+ //key de 32 bytes
+const keyValue = 'key-ultra-segura-proyectoTVersus'
+const key = keyValue;
 
 //funcion a la que pasada una string la encripta usando aes-256-cbc
 function encrypt(text) {
-   let cipher = crypto.createCipheriv('aes-256-cbc', Buffer.from(key), iv);
+   let iv = crypto.randomBytes(16); //random gen key de 16 bytes
+   let cipher = crypto.createCipheriv(algorithm, Buffer.from(key), iv);
    let encrypted = cipher.update(text);
 
    encrypted = Buffer.concat([encrypted, cipher.final()]);
@@ -27,7 +30,7 @@ function convert(iv, encrypted){
 function decrypt(text) {
    let iv = Buffer.from(text.iv, 'hex');
    let encryptedText = Buffer.from(text.encryptedData, 'hex');
-   let decipher = crypto.createDecipheriv('aes-256-cbc', Buffer.from(key), iv);
+   let decipher = crypto.createDecipheriv(algorithm, Buffer.from(key), iv);
    let decrypted = decipher.update(encryptedText);
 
    decrypted = Buffer.concat([decrypted, decipher.final()]);
