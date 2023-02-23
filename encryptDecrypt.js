@@ -3,7 +3,7 @@
 
 
 const crypto = require('crypto');//Import del crypto module
-const algorithm = 'aes-256-cbc'; //Using AES encryption
+const algorithm = 'aes-256-cbc'; //Uso AES encryption
 
 const keyValue = 'key-ultra-segura-proyectoTVersus'//key de 32 bytes
 const key = keyValue;
