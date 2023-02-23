@@ -5,8 +5,7 @@
 const crypto = require('crypto');//Import del crypto module
 const algorithm = 'aes-256-cbc'; //Using AES encryption
 
- //key de 32 bytes
-const keyValue = 'key-ultra-segura-proyectoTVersus'
+const keyValue = 'key-ultra-segura-proyectoTVersus'//key de 32 bytes
 const key = keyValue;
 
 //funcion a la que pasada una string la encripta usando aes-256-cbc
